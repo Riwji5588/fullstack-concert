@@ -27,4 +27,9 @@ export class ConcertsController {
   async getHistory() {
     return this.concertsService.getHistory();
   } 
+
+  @Delete('delete/:id') // DELETE /concerts/:id
+  async delete(@Param('id') id: string) {
+    return this.concertsService.deleteConcert(id);
+  }
 }

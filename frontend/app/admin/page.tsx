@@ -3,6 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import { API_ENDPOINTS } from "@/lib/api";
 import { useEffect } from "react";
+import Swal from "sweetalert2";
 
 export default function AdminPage() {
     const [form, setForm] = useState<{ concertName: string; description: string; seats: number }>({
@@ -28,11 +29,7 @@ export default function AdminPage() {
         });
     const [concerts, setConcerts] = useState<Array<{ id: number; concertName: string; description: string; seat: number, seatReserve: number }>>([]);
     const [activeTab, setActiveTab] = useState("overview");
-    // const stats = {
-    //     totalSeats: 500,
-    //     reserved: 120,
-    //     cancelled: 12
-    // };
+
 
     const [stats, setStats] = useState<{ totalSeats: number; reserved: number; cancelled: number }>({
         totalSeats: 0,
@@ -51,48 +48,82 @@ export default function AdminPage() {
                 seat: form.seats,
                 description: form.description
             });
-            alert('Concert created successfully!');
+            Swal.fire({
+                icon: 'success',
+                title: 'Success',
+                text: 'Concert created successfully!',
+            });
+
             fecthAllConcerts();
             resetForm();
         } catch (error) {
-            console.error('Error creating concert:', error);
-            alert('Failed to create concert');
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Failed to create concert',
+            });
+
         }
     }
 
     const fecthAllConcerts = async () => {
         try {
             const response = await axios.get(API_ENDPOINTS.concerts.base);
-            console.log('Fetched concerts:', response.data);
-            setConcerts(response.data);
 
             const dashboardResponse = await axios.get(API_ENDPOINTS.concerts.base + '/dashboard');
-            console.log('Dashboard data:', dashboardResponse.data);
             setStats({
                 totalSeats: dashboardResponse.data.totalSeat,
                 reserved: dashboardResponse.data.totalSeatReserve,
                 cancelled: dashboardResponse.data.totalSeatCancel
             });
         } catch (error) {
-            console.error('Error fetching concerts:', error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Failed to fetch concerts',
+            });
+
         }
-
-
     }
 
+    const triggerDeleteConcert = async (concertId: number) => {
+        const result = await Swal.fire({
+            title: 'Confirm Deletion',
+            text: 'Are you sure you want to delete this concert?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'No, keep it',
+            confirmButtonColor: "#29b10eff",
+            cancelButtonColor: "#d33",
+        });
+        if (!result.isConfirmed) return;
+        try {
+            const response = await axios.delete(`${API_ENDPOINTS.concerts.base}/delete/${concertId}`);
+            Swal.fire({
+                icon: 'success',
+                title: 'Deleted!',
+                text: 'Concert has been deleted.',
+            });
 
+            fecthAllConcerts();
+        } catch (error) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Failed to delete concert',
+            });
+        }
+    }
     useEffect(() => {
         fecthAllConcerts();
     }, []);
 
     return (
         <div className="min-h-screen bg-gray-50">
-
             <div className="bg-white border-b border-gray-200 px-6 py-4">
                 <h1 className="text-2xl font-semibold text-gray-900">Admin - Home</h1>
             </div>
-
-
             <div className="px-6 py-8">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                     <div className="bg-blue-500 rounded-lg p-6 text-white">
@@ -163,7 +194,7 @@ export default function AdminPage() {
                                         <h3 className="text-xl font-medium text-blue-600 mb-3">
                                             {concert.concertName}
                                         </h3>
-                                        <button className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2">
+                                        <button className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2" onClick={() => triggerDeleteConcert(concert.id)}>
                                             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                                                 <path fillRule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd" />
                                             </svg>

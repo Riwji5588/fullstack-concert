@@ -45,7 +45,7 @@ export class ConcertsService {
 
   async getHistory() {
     return this.prisma.history.findMany({
-      include : {
+      include: {
         concertevent: true,
         user: true,
       },
@@ -53,5 +53,30 @@ export class ConcertsService {
         date: 'desc',
       },
     });
+  }
+
+  async deleteConcert(id: string) {
+    const concertId = parseInt(id, 10);
+    const concert = await this.prisma.concertevent.findUnique({
+      where: { id: concertId },
+    });
+    if (!concert) {
+      throw new NotFoundException(`Concert with ID ${concertId} not found`);
+    }
+
+    // Delete all related history records first
+    await this.prisma.history.deleteMany({
+      where: { concertId: concertId },
+    });
+
+    // Then delete the concert
+    await this.prisma.concertevent.delete({
+      where: { id: concertId },
+    });
+
+    return {
+      status: 'success',
+      message: `Concert with ID ${concertId} deleted successfully`,
+    };
   }
 }

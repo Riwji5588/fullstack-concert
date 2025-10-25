@@ -2,7 +2,7 @@
 import axios from "axios";
 import { API_ENDPOINTS } from "@/lib/api";
 import { useEffect, useState } from "react";
-
+import Swal from "sweetalert2";
 interface HistoryItem {
   id: number;
   concertId: number;
@@ -47,10 +47,13 @@ export default function HistoryPage() {
     try {
       setLoading(true);
       const response = await axios.get(API_ENDPOINTS.concerts.history);
-      console.log("Concert History:", response.data);
       setConcertHistory(response.data);
     } catch (error) {
-      console.error("Error fetching concert history:", error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Failed to load concert history',
+      });
     } finally {
       setLoading(false);
     }

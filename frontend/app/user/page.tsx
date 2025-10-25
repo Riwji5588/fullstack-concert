@@ -28,14 +28,17 @@ export default function UserPage() {
       const { data } = await axios.get(API_ENDPOINTS.concerts.base);
       setConcerts(data);
     } catch (error) {
-      console.error('Error loading concerts:', error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Failed to load concerts',
+      });
     } finally {
       setLoading(false);
     }
   };
 
   const handleSubmit = async (concertId: number, typeSubmit: string) => {
-    console.log(concertId)
     if (typeSubmit === 'reserve') {
 
       const result = await Swal.fire({
@@ -98,20 +101,7 @@ export default function UserPage() {
           text: 'เกิดข้อผิดพลาดในการยกเลิกที่นั่ง',
         });
       }
-
-
     }
-
-    // try {
-    //   await axios.post(API_ENDPOINTS.concerts.reserve(concertId), {
-
-    //   });
-    //   alert('จองที่นั่งสำเร็จ!');
-    //   loadConcerts(); // Reload concerts
-    // } catch (error) {
-    //   console.error('Error reserving seats:', error);
-    //   alert('เกิดข้อผิดพลาดในการจองที่นั่ง');
-    // }
   };
 
 

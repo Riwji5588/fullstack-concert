@@ -5,6 +5,7 @@ export const API_ENDPOINTS = {
   concerts: {
     base: `${API_URL}/concerts`,
     history: `${API_URL}/concerts/history`,
+    
   },
   user: {
     submitEventConcert: (id: number, type: string) => `${API_URL}/user/${id}/${type}`,
