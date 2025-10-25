@@ -1,0 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model concertevent {
+  id          Int       @id @default(autoincrement())
+  concertName String?   @db.VarChar(255)
+  description String?   @db.VarChar(255)
+  seat        Int?
+  seatReserve Int?
+  seatCancel  Int?
+  history     history[]
+}
+
+model history {
+  id           Int             @id @default(autoincrement())
+  concertId    Int?
+  userId       Int?
+  date         DateTime?       @db.DateTime(0)
+  action       history_action?
+  user         user?           @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "history_ibfk_1")
+  concertevent concertevent?   @relation(fields: [concertId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "history_ibfk_2")
+
+  @@index([concertId], map: "concertId")
+  @@index([userId], map: "userId")
+}
+
+model user {
+  id       Int       @id @default(autoincrement())
+  userName String?   @db.VarChar(255)
+  history  history[]
+}
+
+enum history_action {
+  cancel
+  reserve
+}

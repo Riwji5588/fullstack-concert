@@ -1,30 +1,89 @@
 'use client';
 import { useState } from "react";
+import axios from "axios";
+import { API_ENDPOINTS } from "@/lib/api";
+import { useEffect } from "react";
+
 export default function AdminPage() {
-    const concerts = [
-        {
-            id: 1,
-            name: "Concert Name 1",
-            description: "Lorem ipsum dolor sit amet consectetur. Elit purus nam gravida porttitor nibh urna sit ornare a. Proin dolor morbi id ornare aenean non. Fusce dignissim turpis sed non est orci sed in. Blandit ut purus nunc sed donec commodo morbi diam scelerisque.",
-            seats: 500,
-        },
-        {
-            id: 2,
-            name: "Concert Name 2",
-            description: "Lorem ipsum dolor sit amet consectetur. Elit purus nam gravida porttitor nibh urna sit ornare a.",
-            seats: 200,
-        }
-    ];
-    const [activeTab, setActiveTab] = useState("overview");
-    const stats = {
-        totalSeats: 500,
-        reserved: 120,
-        cancelled: 12
+    const [form, setForm] = useState<{ concertName: string; description: string; seats: number }>({
+        concertName: "",
+        description: "",
+        seats: 0,
+    });
+
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setForm(prev => ({
+            ...prev,
+            [name]: name === "seats" ? Number(value) : value,
+        }));
     };
+
+    const resetForm = () =>
+        setForm({
+            concertName: "",
+            description: "",
+            seats: 0,
+        });
+    const [concerts, setConcerts] = useState<Array<{ id: number; concertName: string; description: string; seat: number, seatReserve: number }>>([]);
+    const [activeTab, setActiveTab] = useState("overview");
+    // const stats = {
+    //     totalSeats: 500,
+    //     reserved: 120,
+    //     cancelled: 12
+    // };
+
+    const [stats, setStats] = useState<{ totalSeats: number; reserved: number; cancelled: number }>({
+        totalSeats: 0,
+        reserved: 0,
+        cancelled: 0
+    });
 
     const switchTab = (tab: string) => {
         setActiveTab(tab);
     }
+    const handleCreateConcert = async (e: React.FormEvent) => {
+        e.preventDefault();
+        try {
+            await axios.post(API_ENDPOINTS.concerts.base + '/create', {
+                concert_name: form.concertName,
+                seat: form.seats,
+                description: form.description
+            });
+            alert('Concert created successfully!');
+            fecthAllConcerts();
+            resetForm();
+        } catch (error) {
+            console.error('Error creating concert:', error);
+            alert('Failed to create concert');
+        }
+    }
+
+    const fecthAllConcerts = async () => {
+        try {
+            const response = await axios.get(API_ENDPOINTS.concerts.base);
+            console.log('Fetched concerts:', response.data);
+            setConcerts(response.data);
+
+            const dashboardResponse = await axios.get(API_ENDPOINTS.concerts.base + '/dashboard');
+            console.log('Dashboard data:', dashboardResponse.data);
+            setStats({
+                totalSeats: dashboardResponse.data.totalSeat,
+                reserved: dashboardResponse.data.totalSeatReserve,
+                cancelled: dashboardResponse.data.totalSeatCancel
+            });
+        } catch (error) {
+            console.error('Error fetching concerts:', error);
+        }
+
+
+    }
+
+
+    useEffect(() => {
+        fecthAllConcerts();
+    }, []);
 
     return (
         <div className="min-h-screen bg-gray-50">
@@ -97,12 +156,12 @@ export default function AdminPage() {
                     </div>
 
                     <div className="p-6">
-                        {activeTab === "overview" && <div className="space-y-6">
+                        {activeTab === "overview" && concerts.length > 0 && <div className="space-y-6">
                             {concerts.map((concert) => (
                                 <div key={concert.id} className="border border-gray-200 rounded-lg p-6">
                                     <div className="flex justify-between items-start mb-4">
                                         <h3 className="text-xl font-medium text-blue-600 mb-3">
-                                            {concert.name}
+                                            {concert.concertName}
                                         </h3>
                                         <button className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2">
                                             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
@@ -120,17 +179,30 @@ export default function AdminPage() {
                                         <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                                             <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
                                         </svg>
-                                        <span className="font-medium">{concert.seats}</span>
+                                        <span className="font-medium">{concert.seat}</span>
+                                    </div>
+                                    <div className="flex items-center text-gray-500">
+                                        <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M3 3a1 1 0 000 2h1.22l.305 1.222M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-11 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                        </svg>
+                                        <span className="font-medium">{concert.seatReserve}</span>
                                     </div>
                                 </div>
                             ))}
                         </div>}
+                        {
+                            activeTab === "overview" && concerts.length == 0 && <div className="text-center py-12">
+                                <p className="text-gray-600 text-lg">
+                                    No concerts available
+                                </p>
+                            </div>
+                        }
 
                         {activeTab === "create" && (
                             <div className="max-w-4xl">
                                 <h3 className="text-xl font-semibold text-gray-900 mb-6">Create New Concert</h3>
 
-                                <form className="space-y-6">
+                                <form className="space-y-6" onSubmit={handleCreateConcert}>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div>
                                             <label htmlFor="concertName" className="block text-sm font-medium text-gray-700 mb-2">
@@ -142,6 +214,8 @@ export default function AdminPage() {
                                                 name="concertName"
                                                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
                                                 placeholder="Please input concert name"
+                                                value={form.concertName}
+                                                onChange={handleInputChange}
                                             />
                                         </div>
                                         <div>
@@ -156,6 +230,8 @@ export default function AdminPage() {
                                                     min="1"
                                                     className="w-full px-3 py-2 pr-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
                                                     placeholder="500"
+                                                    value={form.seats}
+                                                    onChange={handleInputChange}
                                                 />
                                                 <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
                                                     <svg className="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
@@ -176,13 +252,13 @@ export default function AdminPage() {
                                             rows={4}
                                             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors resize-vertical"
                                             placeholder="Please input description"
+                                            value={form.description}
+                                            onChange={handleInputChange}
                                         />
                                     </div>
 
-
-
                                     <div className="flex justify-end gap-3 pt-4">
-                             
+
                                         <button
                                             type="submit"
                                             className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors flex items-center gap-2"
@@ -190,7 +266,6 @@ export default function AdminPage() {
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                                                 <path strokeLinecap="round" strokeLinejoin="round" d="m9 13.5 3 3m0 0 3-3m-3 3v-6m1.06-4.19-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" />
                                             </svg>
-
                                             Save
                                         </button>
                                     </div>

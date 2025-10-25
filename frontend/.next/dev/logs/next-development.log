@@ -1,404 +1,318 @@
-[00:00:01.154] Server  LOG      ✓ Ready in 825ms
-[00:00:06.114] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:06.114] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+[00:00:00.886] Server  LOG      ✓ Ready in 638ms
+[00:00:02.157] Server  ERROR    ⨯ ./app/admin/history/page.tsx:4:10
+Ecmascript file had an error
+  2 | import axios from "axios";
+  3 | import { API_ENDPOINTS } from "@/lib/api";
+> 4 | import { useEffect } from "react";
+    |          ^^^^^^^^^
+  5 |
+  6 | export const metadata: Metadata = {
+  7 |   title: "History - Concert App",
 
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
 
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
 
-%s%s https://react.dev/link/hydration-mismatch 
 
-  ...
-    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
-      <AppDevOverlayErrorBoundary globalError={[...]}>
-        <ReplaySsrOnlyErrors>
-        <DevRootHTTPAccessFallbackBoundary>
-          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
-            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
-              <RedirectBoundary>
-                <RedirectErrorBoundary router={{...}}>
-                  <Head>
-                  <__next_root_layout_boundary__>
-                    <SegmentViewNode type="layout" pagePath="layout.tsx">
-                      <SegmentTrieNode>
-                      <link>
-                      <script>
-                      <script>
-                      <RootLayout>
-                        <html lang="en">
-                          <body
-                            className="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__var..."
--                           __processed_3794f48e-0a1b-49a8-9ebb-4317e61b8573__="true"
-                          >
-                  ...
 
-[00:00:06.114] Browser WARN    Image with src "http://localhost:3001/vercel.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:02:47.282] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:47.282] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
 
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
+[00:00:03.123] Browser ERROR   uncaughtError: Error: ./app/admin/history/page.tsx:4:10
+Ecmascript file had an error
+  2 | import axios from "axios";
+  3 | import { API_ENDPOINTS } from "@/lib/api";
+> 4 | import { useEffect } from "react";
+    |          ^^^^^^^^^
+  5 |
+  6 | export const metadata: Metadata = {
+  7 |   title: "History - Concert App",
 
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
 
-%s%s https://react.dev/link/hydration-mismatch 
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
 
-  ...
-    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
-      <AppDevOverlayErrorBoundary globalError={[...]}>
-        <ReplaySsrOnlyErrors>
-        <DevRootHTTPAccessFallbackBoundary>
-          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
-            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
-              <RedirectBoundary>
-                <RedirectErrorBoundary router={{...}}>
-                  <Head>
-                  <__next_root_layout_boundary__>
-                    <SegmentViewNode type="layout" pagePath="layout.tsx">
-                      <SegmentTrieNode>
-                      <link>
-                      <script>
-                      <script>
-                      <RootLayout>
-                        <html lang="en">
-                          <body
-                            className="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__var..."
--                           __processed_89988b15-c1a2-415d-832e-c194100c5e54__="true"
-                          >
-                  ...
 
-[00:03:22.052] Server  LOG      ✓ Compiled in 57ms
-[00:03:29.141] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:03:29.267] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
 
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
 
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+[00:00:03.332] Browser ERROR   ./app/admin/history/page.tsx:4:10
+Ecmascript file had an error
+  2 | import axios from "axios";
+  3 | import { API_ENDPOINTS } from "@/lib/api";
+> 4 | import { useEffect } from "react";
+    |          ^^^^^^^^^
+  5 |
+  6 | export const metadata: Metadata = {
+  7 |   title: "History - Concert App",
 
-%s%s https://react.dev/link/hydration-mismatch 
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
 
-  ...
-    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
-      <AppDevOverlayErrorBoundary globalError={[...]}>
-        <ReplaySsrOnlyErrors>
-        <DevRootHTTPAccessFallbackBoundary>
-          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
-            <HTTPAccessFallbackErrorBoundary pathname="/admin" notFound={<NotAllowedRootHTTPFallbackError>} ...>
-              <RedirectBoundary>
-                <RedirectErrorBoundary router={{...}}>
-                  <Head>
-                  <__next_root_layout_boundary__>
-                    <SegmentViewNode type="layout" pagePath="layout.tsx">
-                      <SegmentTrieNode>
-                      <link>
-                      <script>
-                      <script>
-                      <RootLayout>
-                        <html lang="en">
-                          <body
-                            className="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__var..."
--                           __processed_2ee54970-3bd1-4249-a403-4cf9d962ed17__="true"
-                          >
-                  ...
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[00:00:03.332] Browser ERROR   ./app/admin/history/page.tsx:4:10
+Ecmascript file had an error
+  2 | import axios from "axios";
+  3 | import { API_ENDPOINTS } from "@/lib/api";
+> 4 | import { useEffect } from "react";
+    |          ^^^^^^^^^
+  5 |
+  6 | export const metadata: Metadata = {
+  7 |   title: "History - Concert App",
 
-[00:03:30.619] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:03:30.736] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
 
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[00:00:15.779] Browser ERROR   ./app/admin/history/page.tsx:4:10
+Ecmascript file had an error
+  2 | import axios from "axios";
+  3 | import { API_ENDPOINTS } from "@/lib/api";
+> 4 | import { useEffect } from "react";
+    |          ^^^^^^^^^
+  5 |
+  6 | export const metadata: Metadata = {
+  7 |   title: "History - Concert App",
 
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
 
-%s%s https://react.dev/link/hydration-mismatch 
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[00:00:17.439] Server  ERROR    ⨯ ./app/admin/history/page.tsx:4:10
+Ecmascript file had an error
+  2 | import axios from "axios";
+  3 | import { API_ENDPOINTS } from "@/lib/api";
+> 4 | import { useEffect } from "react";
+    |          ^^^^^^^^^
+  5 |
+  6 | export const metadata: Metadata = {
+  7 |   title: "History - Concert App",
 
-  ...
-    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
-      <AppDevOverlayErrorBoundary globalError={[...]}>
-        <ReplaySsrOnlyErrors>
-        <DevRootHTTPAccessFallbackBoundary>
-          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
-            <HTTPAccessFallbackErrorBoundary pathname="/admin" notFound={<NotAllowedRootHTTPFallbackError>} ...>
-              <RedirectBoundary>
-                <RedirectErrorBoundary router={{...}}>
-                  <Head>
-                  <__next_root_layout_boundary__>
-                    <SegmentViewNode type="layout" pagePath="layout.tsx">
-                      <SegmentTrieNode>
-                      <link>
-                      <script>
-                      <script>
-                      <RootLayout>
-                        <html lang="en">
-                          <body
-                            className="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__var..."
--                           __processed_f8bdc4dd-b25e-45ea-abdb-076380dc4482__="true"
-                          >
-                  ...
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
 
-[00:05:05.809] Server  LOG      ✓ Compiled in 30ms
-[00:05:06.210] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:05:07.276] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
 
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
 
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
 
-%s%s https://react.dev/link/hydration-mismatch 
 
-  ...
-    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
-      <AppDevOverlayErrorBoundary globalError={[...]}>
-        <ReplaySsrOnlyErrors>
-        <DevRootHTTPAccessFallbackBoundary>
-          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
-            <HTTPAccessFallbackErrorBoundary pathname="/admin" notFound={<NotAllowedRootHTTPFallbackError>} ...>
-              <RedirectBoundary>
-                <RedirectErrorBoundary router={{...}}>
-                  <Head>
-                  <__next_root_layout_boundary__>
-                    <SegmentViewNode type="layout" pagePath="layout.tsx">
-                      <SegmentTrieNode>
-                      <link>
-                      <script>
-                      <RootLayout>
-                        <html lang="en">
-                          <body
-                            className="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__var..."
--                           __processed_e108a128-a31c-49a8-a5f4-e00c7d0ad158__="true"
-                          >
-                  ...
+[00:00:17.752] Browser ERROR   uncaughtError: Error: ./app/admin/history/page.tsx:4:10
+Ecmascript file had an error
+  2 | import axios from "axios";
+  3 | import { API_ENDPOINTS } from "@/lib/api";
+> 4 | import { useEffect } from "react";
+    |          ^^^^^^^^^
+  5 |
+  6 | export const metadata: Metadata = {
+  7 |   title: "History - Concert App",
 
-[00:05:09.504] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:05:09.621] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
 
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
 
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
 
-%s%s https://react.dev/link/hydration-mismatch 
 
-  ...
-    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
-      <AppDevOverlayErrorBoundary globalError={[...]}>
-        <ReplaySsrOnlyErrors>
-        <DevRootHTTPAccessFallbackBoundary>
-          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
-            <HTTPAccessFallbackErrorBoundary pathname="/admin" notFound={<NotAllowedRootHTTPFallbackError>} ...>
-              <RedirectBoundary>
-                <RedirectErrorBoundary router={{...}}>
-                  <Head>
-                  <__next_root_layout_boundary__>
-                    <SegmentViewNode type="layout" pagePath="layout.tsx">
-                      <SegmentTrieNode>
-                      <link>
-                      <script>
-                      <RootLayout>
-                        <html lang="en">
-                          <body
-                            className="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__var..."
--                           __processed_ac47db65-187d-4e93-949c-f766e9043431__="true"
-                          >
-                  ...
 
-[00:05:10.483] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:05:10.595] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+[00:00:17.917] Browser ERROR   ./app/admin/history/page.tsx:4:10
+Ecmascript file had an error
+  2 | import axios from "axios";
+  3 | import { API_ENDPOINTS } from "@/lib/api";
+> 4 | import { useEffect } from "react";
+    |          ^^^^^^^^^
+  5 |
+  6 | export const metadata: Metadata = {
+  7 |   title: "History - Concert App",
 
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
 
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[00:00:17.917] Browser ERROR   ./app/admin/history/page.tsx:4:10
+Ecmascript file had an error
+  2 | import axios from "axios";
+  3 | import { API_ENDPOINTS } from "@/lib/api";
+> 4 | import { useEffect } from "react";
+    |          ^^^^^^^^^
+  5 |
+  6 | export const metadata: Metadata = {
+  7 |   title: "History - Concert App",
 
-%s%s https://react.dev/link/hydration-mismatch 
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
 
-  ...
-    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
-      <AppDevOverlayErrorBoundary globalError={[...]}>
-        <ReplaySsrOnlyErrors>
-        <DevRootHTTPAccessFallbackBoundary>
-          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
-            <HTTPAccessFallbackErrorBoundary pathname="/admin" notFound={<NotAllowedRootHTTPFallbackError>} ...>
-              <RedirectBoundary>
-                <RedirectErrorBoundary router={{...}}>
-                  <Head>
-                  <__next_root_layout_boundary__>
-                    <SegmentViewNode type="layout" pagePath="layout.tsx">
-                      <SegmentTrieNode>
-                      <link>
-                      <script>
-                      <RootLayout>
-                        <html lang="en">
-                          <body
-                            className="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__var..."
--                           __processed_225459da-abaf-4bce-a528-40ec92229b55__="true"
-                          >
-                  ...
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[00:00:38.846] Browser ERROR   ./app/admin/history/page.tsx:2:7
+Parsing ecmascript source code failed
+  1 | 'use client';
+> 2 | mport { Metadata } from "next";
+    |       ^
+  3 | import axios from "axios";
+  4 | import { API_ENDPOINTS } from "@/lib/api";
+  5 | import { useEffect } from "react";
 
-[00:05:12.929] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:05:12.929] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+Expected ';', '}' or <eof>
+[00:00:41.223] Browser ERROR   ./app/admin/history/page.tsx:7:14
+Ecmascript file had an error
+   5 | import { useEffect } from "react";
+   6 |
+>  7 | export const metadata: Metadata = {
+     |              ^^^^^^^^
+   8 |   title: "History - Concert App",
+   9 |   description: "View your concert history and past events",
+  10 | };
 
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
+You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/docs/app/api-reference/directives/use-client
 
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+Import traces:
+  Client Component Browser:
+    ./app/admin/history/page.tsx [Client Component Browser]
+    ./app/admin/history/page.tsx [Server Component]
 
-%s%s https://react.dev/link/hydration-mismatch 
+  Client Component SSR:
+    ./app/admin/history/page.tsx [Client Component SSR]
+    ./app/admin/history/page.tsx [Server Component]
+[00:00:42.817] Server  ERROR    ⨯ ./app/admin/history/page.tsx:7:14
+Ecmascript file had an error
+   5 | import { useEffect } from "react";
+   6 |
+>  7 | export const metadata: Metadata = {
+     |              ^^^^^^^^
+   8 |   title: "History - Concert App",
+   9 |   description: "View your concert history and past events",
+  10 | };
 
-  ...
-    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
-      <AppDevOverlayErrorBoundary globalError={[...]}>
-        <ReplaySsrOnlyErrors>
-        <DevRootHTTPAccessFallbackBoundary>
-          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
-            <HTTPAccessFallbackErrorBoundary pathname="/admin" notFound={<NotAllowedRootHTTPFallbackError>} ...>
-              <RedirectBoundary>
-                <RedirectErrorBoundary router={{...}}>
-                  <Head>
-                  <__next_root_layout_boundary__>
-                    <SegmentViewNode type="layout" pagePath="layout.tsx">
-                      <SegmentTrieNode>
-                      <link>
-                      <script>
-                      <script>
-                      <RootLayout>
-                        <html lang="en">
-                          <body
-                            className="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__var..."
--                           __processed_7e83020c-ab9e-4d39-b003-81ebb06f292b__="true"
-                          >
-                  ...
+You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/docs/app/api-reference/directives/use-client
 
-[00:06:18.205] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:06:18.311] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
 
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
 
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+Import traces:
+  Client Component Browser:
+    ./app/admin/history/page.tsx [Client Component Browser]
+    ./app/admin/history/page.tsx [Server Component]
 
-%s%s https://react.dev/link/hydration-mismatch 
+  Client Component SSR:
+    ./app/admin/history/page.tsx [Client Component SSR]
+    ./app/admin/history/page.tsx [Server Component]
 
-  ...
-    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
-      <AppDevOverlayErrorBoundary globalError={[...]}>
-        <ReplaySsrOnlyErrors>
-        <DevRootHTTPAccessFallbackBoundary>
-          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
-            <HTTPAccessFallbackErrorBoundary pathname="/admin/his..." notFound={<NotAllowedRootHTTPFallbackError>} ...>
-              <RedirectBoundary>
-                <RedirectErrorBoundary router={{...}}>
-                  <Head>
-                  <__next_root_layout_boundary__>
-                    <SegmentViewNode type="layout" pagePath="layout.tsx">
-                      <SegmentTrieNode>
-                      <link>
-                      <script>
-                      <script>
-                      <RootLayout>
-                        <html lang="en">
-                          <body
-                            className="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__var..."
--                           __processed_65cff2eb-ff81-4c4a-ad21-bcc892f34b83__="true"
-                          >
-                  ...
 
-[00:08:52.601] Server  LOG      ✓ Compiled in 14ms
-[00:08:55.846] Server  LOG      ✓ Compiled in 73ms
-[00:08:58.511] Server  LOG      ✓ Compiled in 14ms
-[00:12:13.362] Server  LOG      ✓ Compiled in 88ms
-[00:13:41.312] Server  LOG      ✓ Compiled in 38ms
-[00:13:42.276] Browser ERROR   Invalid DOM property `%s`. Did you mean `%s`? stroke-width strokeWidth
-[00:13:42.276] Browser ERROR   Invalid DOM property `%s`. Did you mean `%s`? stroke-linecap strokeLinecap
-[00:13:42.276] Browser ERROR   Invalid DOM property `%s`. Did you mean `%s`? stroke-linejoin strokeLinejoin
-[00:14:05.156] Server  LOG      ✓ Compiled in 21ms
-[00:14:18.104] Server  LOG      ✓ Compiled in 26ms
-[00:14:18.944] Server  LOG      ✓ Compiled in 12ms
-[00:14:34.612] Server  LOG      ✓ Compiled in 24ms
-[00:14:43.268] Server  LOG      ✓ Compiled in 18ms
-[00:15:56.931] Server  LOG      ✓ Compiled in 41ms
-[00:15:57.272] Browser ERROR   Invalid DOM property `%s`. Did you mean `%s`? class className
-[00:16:03.102] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:16:03.219] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+[00:00:43.111] Browser ERROR   uncaughtError: Error: ./app/admin/history/page.tsx:7:14
+Ecmascript file had an error
+   5 | import { useEffect } from "react";
+   6 |
+>  7 | export const metadata: Metadata = {
+     |              ^^^^^^^^
+   8 |   title: "History - Concert App",
+   9 |   description: "View your concert history and past events",
+  10 | };
 
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
+You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/docs/app/api-reference/directives/use-client
 
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
 
-%s%s https://react.dev/link/hydration-mismatch 
 
-  ...
-    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
-      <AppDevOverlayErrorBoundary globalError={[...]}>
-        <ReplaySsrOnlyErrors>
-        <DevRootHTTPAccessFallbackBoundary>
-          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
-            <HTTPAccessFallbackErrorBoundary pathname="/admin" notFound={<NotAllowedRootHTTPFallbackError>} ...>
-              <RedirectBoundary>
-                <RedirectErrorBoundary router={{...}}>
-                  <Head>
-                  <__next_root_layout_boundary__>
-                    <SegmentViewNode type="layout" pagePath="layout.tsx">
-                      <SegmentTrieNode>
-                      <link>
-                      <script>
-                      <script>
-                      <RootLayout>
-                        <html lang="en">
-                          <body
-                            className="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__var..."
--                           __processed_84e2b946-2d43-4dba-9e0e-e56c274c5685__="true"
-                          >
-                  ...
+Import traces:
+  Client Component Browser:
+    ./app/admin/history/page.tsx [Client Component Browser]
+    ./app/admin/history/page.tsx [Server Component]
 
-[00:16:04.534] Browser ERROR   Invalid DOM property `%s`. Did you mean `%s`? stroke-linecap strokeLinecap
-[00:16:04.534] Browser ERROR   Invalid DOM property `%s`. Did you mean `%s`? stroke-linejoin strokeLinejoin
-[00:16:04.534] Browser ERROR   Invalid DOM property `%s`. Did you mean `%s`? stroke-width strokeWidth
-[00:16:04.535] Browser ERROR   Invalid DOM property `%s`. Did you mean `%s`? class className
-[00:16:14.398] Server  LOG      ✓ Compiled in 24ms
-[00:16:15.561] Server  LOG      ✓ Compiled in 12ms
-[00:22:01.579] Server  LOG      ✓ Compiled in 26ms
-[00:22:04.614] Server  LOG      ✓ Compiled in 22ms
-[00:22:12.806] Server  LOG      ✓ Compiled in 18ms
-[00:22:13.269] Browser ERROR   Received `%s` for a non-boolean attribute `%s`.
+  Client Component SSR:
+    ./app/admin/history/page.tsx [Client Component SSR]
+    ./app/admin/history/page.tsx [Server Component]
 
-If you want to write it to the DOM, pass a string instead: %s="%s" or %s={value.toString()}. true x x true x
-[00:22:14.109] Server  LOG      ✓ Compiled in 18ms
-[00:22:28.321] Server  LOG      ✓ Compiled in 13ms
-[01:56:18.113] Server  LOG      ✓ Compiled in 20ms
-[01:56:20.257] Server  LOG      ✓ Compiled in 20ms
-[01:56:31.877] Server  LOG      ✓ Compiled in 16ms
-[01:57:17.219] Server  LOG      ✓ Compiled in 27ms
+
+[00:00:43.285] Browser ERROR   ./app/admin/history/page.tsx:7:14
+Ecmascript file had an error
+   5 | import { useEffect } from "react";
+   6 |
+>  7 | export const metadata: Metadata = {
+     |              ^^^^^^^^
+   8 |   title: "History - Concert App",
+   9 |   description: "View your concert history and past events",
+  10 | };
+
+You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/history/page.tsx [Client Component Browser]
+    ./app/admin/history/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/history/page.tsx [Client Component SSR]
+    ./app/admin/history/page.tsx [Server Component]
+[00:00:43.285] Browser ERROR   ./app/admin/history/page.tsx:7:14
+Ecmascript file had an error
+   5 | import { useEffect } from "react";
+   6 |
+>  7 | export const metadata: Metadata = {
+     |              ^^^^^^^^
+   8 |   title: "History - Concert App",
+   9 |   description: "View your concert history and past events",
+  10 | };
+
+You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/history/page.tsx [Client Component Browser]
+    ./app/admin/history/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/history/page.tsx [Client Component SSR]
+    ./app/admin/history/page.tsx [Server Component]
+[00:00:45.844] Browser ERROR   ./app/admin/history/page.tsx:7:14
+Ecmascript file had an error
+   5 | import { useEffect } from "react";
+   6 |
+>  7 | export const metadata: Metadata = {
+     |              ^^^^^^^^
+   8 |   title: "History - Concert App",
+   9 |   description: "View your concert history and past events",
+  10 | };
+
+You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/history/page.tsx [Client Component Browser]
+    ./app/admin/history/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/history/page.tsx [Client Component SSR]
+    ./app/admin/history/page.tsx [Server Component]
+[00:01:05.292] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:05.516] Browser LOG     Concert History: [{"action":"reserve","concertId":5,"date":"2025-10-26T00:36:22.000Z","id":7,"userId":1},{"action":"reserve","concertId":4,"date":"2025-10-26T00:32:17.000Z","id":6,"userId":1},{"action":"cancel","concertId":4,"date":"2025-10-26T00:32:13.000Z","id":5,"userId":1},{"action":"reserve","concertId":4,"date":"2025-10-26T00:32:05.000Z","id":4,"userId":1},{"action":"reserve","concertId":4,"date":"2025-10-25T17:31:27.000Z","id":3,"userId":1}]
+[00:01:38.261] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:38.489] Browser LOG     Concert History: [{"action":"reserve","concertId":5,"concertevent":{"concertName":"Black Pink","description":"dead","id":5,"seat":4000,"seatCancel":0,"seatReserve":1},"date":"2025-10-26T00:36:22.000Z","id":7,"user":{"id":1,"userName":"Sarah"},"userId":1},{"action":"reserve","concertId":4,"concertevent":{"concertName":"Black Pink","description":"Blackpink Asia Tour","id":4,"seat":5000,"seatCancel":3,"seatReserve":58},"date":"2025-10-26T00:32:17.000Z","id":6,"user":{"id":1,"userName":"Sarah"},"userId":1},{"action":"cancel","concertId":4,"concertevent":{"concertName":"Black Pink","description":"Blackpink Asia Tour","id":4,"seat":5000,"seatCancel":3,"seatReserve":58},"date":"2025-10-26T00:32:13.000Z","id":5,"user":{"id":1,"userName":"Sarah"},"userId":1},{"action":"reserve","concertId":4,"concertevent":{"concertName":"Black Pink","description":"Blackpink Asia Tour","id":4,"seat":5000,"seatCancel":3,"seatReserve":58},"date":"2025-10-26T00:32:05.000Z","id":4,"user":{"id":1,"userName":"Sarah"},"userId":1},{"action":"reserve","concertId":4,"concertevent":{"concertName":"Black Pink","description":"Blackpink Asia Tour","id":4,"seat":5000,"seatCancel":3,"seatReserve":58},"date":"2025-10-25T17:31:27.000Z","id":3,"user":{"id":1,"userName":"Sarah"},"userId":1}]
+[00:02:20.349] Server  LOG      ✓ Compiled in 31ms
+[00:02:20.845] Browser ERROR   ./app/admin/history/page.tsx:11:3
+Parsing ecmascript source code failed
+   9 |   const 
+  10 |
+> 11 |   const formatDate = (dateString: string) => {
+     |   ^^^^^
+  12 |     return new Date(dateString).toLocaleDateString('en-US', {
+  13 |       year: 'numeric',
+  14 |       month: 'long',
+
+Expected ident
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/history/page.tsx [Client Component Browser]
+    ./app/admin/history/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/history/page.tsx [Client Component SSR]
+    ./app/admin/history/page.tsx [Server Component]
+[00:02:23.845] Browser LOG     Concert History: [{"action":"reserve","concertId":5,"concertevent":{"concertName":"Black Pink","description":"dead","id":5,"seat":4000,"seatCancel":0,"seatReserve":1},"date":"2025-10-26T00:36:22.000Z","id":7,"user":{"id":1,"userName":"Sarah"},"userId":1},{"action":"reserve","concertId":4,"concertevent":{"concertName":"Black Pink","description":"Blackpink Asia Tour","id":4,"seat":5000,"seatCancel":3,"seatReserve":58},"date":"2025-10-26T00:32:17.000Z","id":6,"user":{"id":1,"userName":"Sarah"},"userId":1},{"action":"cancel","concertId":4,"concertevent":{"concertName":"Black Pink","description":"Blackpink Asia Tour","id":4,"seat":5000,"seatCancel":3,"seatReserve":58},"date":"2025-10-26T00:32:13.000Z","id":5,"user":{"id":1,"userName":"Sarah"},"userId":1},{"action":"reserve","concertId":4,"concertevent":{"concertName":"Black Pink","description":"Blackpink Asia Tour","id":4,"seat":5000,"seatCancel":3,"seatReserve":58},"date":"2025-10-26T00:32:05.000Z","id":4,"user":{"id":1,"userName":"Sarah"},"userId":1},{"action":"reserve","concertId":4,"concertevent":{"concertName":"Black Pink","description":"Blackpink Asia Tour","id":4,"seat":5000,"seatCancel":3,"seatReserve":58},"date":"2025-10-25T17:31:27.000Z","id":3,"user":{"id":1,"userName":"Sarah"},"userId":1}]
+[00:02:23.845] Browser LOG     Concert History: [{"action":"reserve","concertId":5,"concertevent":{"concertName":"Black Pink","description":"dead","id":5,"seat":4000,"seatCancel":0,"seatReserve":1},"date":"2025-10-26T00:36:22.000Z","id":7,"user":{"id":1,"userName":"Sarah"},"userId":1},{"action":"reserve","concertId":4,"concertevent":{"concertName":"Black Pink","description":"Blackpink Asia Tour","id":4,"seat":5000,"seatCancel":3,"seatReserve":58},"date":"2025-10-26T00:32:17.000Z","id":6,"user":{"id":1,"userName":"Sarah"},"userId":1},{"action":"cancel","concertId":4,"concertevent":{"concertName":"Black Pink","description":"Blackpink Asia Tour","id":4,"seat":5000,"seatCancel":3,"seatReserve":58},"date":"2025-10-26T00:32:13.000Z","id":5,"user":{"id":1,"userName":"Sarah"},"userId":1},{"action":"reserve","concertId":4,"concertevent":{"concertName":"Black Pink","description":"Blackpink Asia Tour","id":4,"seat":5000,"seatCancel":3,"seatReserve":58},"date":"2025-10-26T00:32:05.000Z","id":4,"user":{"id":1,"userName":"Sarah"},"userId":1},{"action":"reserve","concertId":4,"concertevent":{"concertName":"Black Pink","description":"Blackpink Asia Tour","id":4,"seat":5000,"seatCancel":3,"seatReserve":58},"date":"2025-10-25T17:31:27.000Z","id":3,"user":{"id":1,"userName":"Sarah"},"userId":1}]
+[00:04:17.598] Server  LOG      ✓ Compiled in 46ms
+[00:04:17.706] Browser LOG     Concert History: [{"action":"reserve","concertId":5,"concertevent":{"concertName":"Black Pink","description":"dead","id":5,"seat":4000,"seatCancel":0,"seatReserve":1},"date":"2025-10-26T00:36:22.000Z","id":7,"user":{"id":1,"userName":"Sarah"},"userId":1},{"action":"reserve","concertId":4,"concertevent":{"concertName":"Black Pink","description":"Blackpink Asia Tour","id":4,"seat":5000,"seatCancel":3,"seatReserve":58},"date":"2025-10-26T00:32:17.000Z","id":6,"user":{"id":1,"userName":"Sarah"},"userId":1},{"action":"cancel","concertId":4,"concertevent":{"concertName":"Black Pink","description":"Blackpink Asia Tour","id":4,"seat":5000,"seatCancel":3,"seatReserve":58},"date":"2025-10-26T00:32:13.000Z","id":5,"user":{"id":1,"userName":"Sarah"},"userId":1},{"action":"reserve","concertId":4,"concertevent":{"concertName":"Black Pink","description":"Blackpink Asia Tour","id":4,"seat":5000,"seatCancel":3,"seatReserve":58},"date":"2025-10-26T00:32:05.000Z","id":4,"user":{"id":1,"userName":"Sarah"},"userId":1},{"action":"reserve","concertId":4,"concertevent":{"concertName":"Black Pink","description":"Blackpink Asia Tour","id":4,"seat":5000,"seatCancel":3,"seatReserve":58},"date":"2025-10-25T17:31:27.000Z","id":3,"user":{"id":1,"userName":"Sarah"},"userId":1}]
+[00:04:35.499] Browser LOG     Fetched concerts: [{"concertName":"Black Pink","description":"Blackpink Asia Tour","id":4,"seat":5000,"seatCancel":3,"seatReserve":58},{"concertName":"Black Pink","description":"dead","id":5,"seat":4000,"seatCancel":0,"seatReserve":1}]
+[00:04:35.499] Browser LOG     Fetched concerts: [{"concertName":"Black Pink","description":"Blackpink Asia Tour","id":4,"seat":5000,"seatCancel":3,"seatReserve":58},{"concertName":"Black Pink","description":"dead","id":5,"seat":4000,"seatCancel":0,"seatReserve":1}]
+[00:04:35.499] Browser LOG     Dashboard data: {"totalSeat":9000,"totalSeatCancel":3,"totalSeatReserve":59}
+[00:04:35.499] Browser LOG     Dashboard data: {"totalSeat":9000,"totalSeatCancel":3,"totalSeatReserve":59}
+[00:04:37.297] Browser LOG     Concert History: [{"action":"reserve","concertId":5,"concertevent":{"concertName":"Black Pink","description":"dead","id":5,"seat":4000,"seatCancel":0,"seatReserve":1},"date":"2025-10-26T00:36:22.000Z","id":7,"user":{"id":1,"userName":"Sarah"},"userId":1},{"action":"reserve","concertId":4,"concertevent":{"concertName":"Black Pink","description":"Blackpink Asia Tour","id":4,"seat":5000,"seatCancel":3,"seatReserve":58},"date":"2025-10-26T00:32:17.000Z","id":6,"user":{"id":1,"userName":"Sarah"},"userId":1},{"action":"cancel","concertId":4,"concertevent":{"concertName":"Black Pink","description":"Blackpink Asia Tour","id":4,"seat":5000,"seatCancel":3,"seatReserve":58},"date":"2025-10-26T00:32:13.000Z","id":5,"user":{"id":1,"userName":"Sarah"},"userId":1},{"action":"reserve","concertId":4,"concertevent":{"concertName":"Black Pink","description":"Blackpink Asia Tour","id":4,"seat":5000,"seatCancel":3,"seatReserve":58},"date":"2025-10-26T00:32:05.000Z","id":4,"user":{"id":1,"userName":"Sarah"},"userId":1},{"action":"reserve","concertId":4,"concertevent":{"concertName":"Black Pink","description":"Blackpink Asia Tour","id":4,"seat":5000,"seatCancel":3,"seatReserve":58},"date":"2025-10-25T17:31:27.000Z","id":3,"user":{"id":1,"userName":"Sarah"},"userId":1}]
+[00:04:37.297] Browser LOG     Concert History: [{"action":"reserve","concertId":5,"concertevent":{"concertName":"Black Pink","description":"dead","id":5,"seat":4000,"seatCancel":0,"seatReserve":1},"date":"2025-10-26T00:36:22.000Z","id":7,"user":{"id":1,"userName":"Sarah"},"userId":1},{"action":"reserve","concertId":4,"concertevent":{"concertName":"Black Pink","description":"Blackpink Asia Tour","id":4,"seat":5000,"seatCancel":3,"seatReserve":58},"date":"2025-10-26T00:32:17.000Z","id":6,"user":{"id":1,"userName":"Sarah"},"userId":1},{"action":"cancel","concertId":4,"concertevent":{"concertName":"Black Pink","description":"Blackpink Asia Tour","id":4,"seat":5000,"seatCancel":3,"seatReserve":58},"date":"2025-10-26T00:32:13.000Z","id":5,"user":{"id":1,"userName":"Sarah"},"userId":1},{"action":"reserve","concertId":4,"concertevent":{"concertName":"Black Pink","description":"Blackpink Asia Tour","id":4,"seat":5000,"seatCancel":3,"seatReserve":58},"date":"2025-10-26T00:32:05.000Z","id":4,"user":{"id":1,"userName":"Sarah"},"userId":1},{"action":"reserve","concertId":4,"concertevent":{"concertName":"Black Pink","description":"Blackpink Asia Tour","id":4,"seat":5000,"seatCancel":3,"seatReserve":58},"date":"2025-10-25T17:31:27.000Z","id":3,"user":{"id":1,"userName":"Sarah"},"userId":1}]
+[00:05:01.115] Browser LOG     Fetched concerts: [{"concertName":"Black Pink","description":"Blackpink Asia Tour","id":4,"seat":5000,"seatCancel":3,"seatReserve":58},{"concertName":"Black Pink","description":"dead","id":5,"seat":4000,"seatCancel":0,"seatReserve":1}]
+[00:05:01.115] Browser LOG     Fetched concerts: [{"concertName":"Black Pink","description":"Blackpink Asia Tour","id":4,"seat":5000,"seatCancel":3,"seatReserve":58},{"concertName":"Black Pink","description":"dead","id":5,"seat":4000,"seatCancel":0,"seatReserve":1}]
+[00:05:01.115] Browser LOG     Dashboard data: {"totalSeat":9000,"totalSeatCancel":3,"totalSeatReserve":59}
+[00:05:01.115] Browser LOG     Dashboard data: {"totalSeat":9000,"totalSeatCancel":3,"totalSeatReserve":59}
+[00:05:10.022] Browser LOG     Concert History: [{"action":"reserve","concertId":5,"concertevent":{"concertName":"Black Pink","description":"dead","id":5,"seat":4000,"seatCancel":0,"seatReserve":1},"date":"2025-10-26T00:36:22.000Z","id":7,"user":{"id":1,"userName":"Sarah"},"userId":1},{"action":"reserve","concertId":4,"concertevent":{"concertName":"Black Pink","description":"Blackpink Asia Tour","id":4,"seat":5000,"seatCancel":3,"seatReserve":58},"date":"2025-10-26T00:32:17.000Z","id":6,"user":{"id":1,"userName":"Sarah"},"userId":1},{"action":"cancel","concertId":4,"concertevent":{"concertName":"Black Pink","description":"Blackpink Asia Tour","id":4,"seat":5000,"seatCancel":3,"seatReserve":58},"date":"2025-10-26T00:32:13.000Z","id":5,"user":{"id":1,"userName":"Sarah"},"userId":1},{"action":"reserve","concertId":4,"concertevent":{"concertName":"Black Pink","description":"Blackpink Asia Tour","id":4,"seat":5000,"seatCancel":3,"seatReserve":58},"date":"2025-10-26T00:32:05.000Z","id":4,"user":{"id":1,"userName":"Sarah"},"userId":1},{"action":"reserve","concertId":4,"concertevent":{"concertName":"Black Pink","description":"Blackpink Asia Tour","id":4,"seat":5000,"seatCancel":3,"seatReserve":58},"date":"2025-10-25T17:31:27.000Z","id":3,"user":{"id":1,"userName":"Sarah"},"userId":1}]
+[00:05:10.022] Browser LOG     Concert History: [{"action":"reserve","concertId":5,"concertevent":{"concertName":"Black Pink","description":"dead","id":5,"seat":4000,"seatCancel":0,"seatReserve":1},"date":"2025-10-26T00:36:22.000Z","id":7,"user":{"id":1,"userName":"Sarah"},"userId":1},{"action":"reserve","concertId":4,"concertevent":{"concertName":"Black Pink","description":"Blackpink Asia Tour","id":4,"seat":5000,"seatCancel":3,"seatReserve":58},"date":"2025-10-26T00:32:17.000Z","id":6,"user":{"id":1,"userName":"Sarah"},"userId":1},{"action":"cancel","concertId":4,"concertevent":{"concertName":"Black Pink","description":"Blackpink Asia Tour","id":4,"seat":5000,"seatCancel":3,"seatReserve":58},"date":"2025-10-26T00:32:13.000Z","id":5,"user":{"id":1,"userName":"Sarah"},"userId":1},{"action":"reserve","concertId":4,"concertevent":{"concertName":"Black Pink","description":"Blackpink Asia Tour","id":4,"seat":5000,"seatCancel":3,"seatReserve":58},"date":"2025-10-26T00:32:05.000Z","id":4,"user":{"id":1,"userName":"Sarah"},"userId":1},{"action":"reserve","concertId":4,"concertevent":{"concertName":"Black Pink","description":"Blackpink Asia Tour","id":4,"seat":5000,"seatCancel":3,"seatReserve":58},"date":"2025-10-25T17:31:27.000Z","id":3,"user":{"id":1,"userName":"Sarah"},"userId":1}]
+[00:05:10.929] Browser LOG     Fetched concerts: [{"concertName":"Black Pink","description":"Blackpink Asia Tour","id":4,"seat":5000,"seatCancel":3,"seatReserve":58},{"concertName":"Black Pink","description":"dead","id":5,"seat":4000,"seatCancel":0,"seatReserve":1}]
+[00:05:10.929] Browser LOG     Fetched concerts: [{"concertName":"Black Pink","description":"Blackpink Asia Tour","id":4,"seat":5000,"seatCancel":3,"seatReserve":58},{"concertName":"Black Pink","description":"dead","id":5,"seat":4000,"seatCancel":0,"seatReserve":1}]
+[00:05:10.929] Browser LOG     Dashboard data: {"totalSeat":9000,"totalSeatCancel":3,"totalSeatReserve":59}
+[00:05:10.929] Browser LOG     Dashboard data: {"totalSeat":9000,"totalSeatCancel":3,"totalSeatReserve":59}
+[00:05:29.550] Server  LOG      ✓ Compiled in 29ms
